@@ -1,7 +1,7 @@
 # load the lavaan package (only needed once per session)
 library(lavaan)
 
-# specify model - predict model via two latent variables; the latent variables are modeled according to clusters of feature agglomeration
+# specify model based on two latent variables - the latent variables are measured by the features in the clusters of feature agglomeration
 model <- ' label ~ latent_var1 + latent_var2
               latent_var1 =~ worst_area + worst_perimeter + worst_radius + area_error + perimeter_error 
                             + mean_radius + mean_perimeter + radius_error + mean_area  
