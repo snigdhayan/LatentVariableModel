@@ -20,7 +20,7 @@ model <- ' # regression
               
 # read data
 setwd('/Users/ibatu/Documents/MyProgramsWindows/R/LatentVariableModel/')
-data <- read.csv(file = 'normalized_breast_cancer_dataset.csv', header = TRUE)
+data <- read.csv(file = './normalized_breast_cancer_dataset.csv', header = TRUE)
 # data <- data[names(data)!='label']
 
 library(caTools)
@@ -38,7 +38,7 @@ fit <- cfa(model, data=data_train, std.lv=TRUE, missing="fiml", control=list(ite
 
 # Predict on test dataset
 
-# data_test <- read.csv('normalized_breast_cancer_dataset_test.csv')
+# data_test <- read.csv('./normalized_breast_cancer_dataset_test.csv')
 pred <- as.data.frame(lavPredict(fit, type = "ov", newdata = data_test))
 
 # Check prediction accuracy
