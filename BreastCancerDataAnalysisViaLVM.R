@@ -18,7 +18,7 @@ model <- ' # regression
               mean_fractal_dimension ~~ worst_fractal_dimension '
               
               
-# read data
+# read data and prepare train-test data
 setwd('/Users/ibatu/Documents/MyProgramsWindows/R/LatentVariableModel/')
 data <- read.csv(file = './normalized_breast_cancer_dataset.csv', header = TRUE)
 # data <- data[names(data)!='label']
@@ -36,9 +36,7 @@ fit <- cfa(model, data=data_train, std.lv=TRUE, missing="fiml", control=list(ite
 # display summary output
 # summary(fit, fit.measures=TRUE)
 
-# Predict on test dataset
-
-# data_test <- read.csv('./normalized_breast_cancer_dataset_test.csv')
+# Predict labels of test dataset
 pred <- as.data.frame(lavPredict(fit, type = "ov", newdata = data_test))
 
 # Check prediction accuracy
@@ -49,5 +47,7 @@ myFn <- function(x) {
 
 pred_binary <- apply(pred["label"], 1, FUN = myFn)
 isCorrect <- pred_binary == data_test["label"]
+
+# Print statistics
 table(isCorrect)
 print(paste0("Accuracy = ", round(sum(isCorrect,na.rm = TRUE)/length(isCorrect)*100,2)))
