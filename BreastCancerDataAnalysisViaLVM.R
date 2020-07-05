@@ -1,4 +1,5 @@
-# load the lavaan package (only needed once per session)
+# load needed packages - caTools and lavaan (only needed once per session)
+library(caTools)
 library(lavaan)
 
 # specify model based on two latent variables - the latent variables are measured by the features in the clusters of feature agglomeration
@@ -23,7 +24,6 @@ setwd('/Users/ibatu/Documents/MyProgramsWindows/R/LatentVariableModel/')
 data <- read.csv(file = './normalized_breast_cancer_dataset.csv', header = TRUE)
 # data <- data[names(data)!='label']
 
-library(caTools)
 # set.seed(101) 
 split_ratio = 0.7
 sample = sample.split(data, SplitRatio = split_ratio)
@@ -42,7 +42,7 @@ training_time <- proc.time() - start_time
 pred <- as.data.frame(lavPredict(fit, type = "ov", newdata = data_test))
 
 # Check prediction accuracy
-myFn <- function(x) {
+myFn <- function(x) { # myFn is used to map predicted fractional labels to 0 or 1
   if (x > 0.5) 1
   else 0
 }
