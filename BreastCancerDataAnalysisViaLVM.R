@@ -24,14 +24,16 @@ data <- read.csv(file = './normalized_breast_cancer_dataset.csv', header = TRUE)
 # data <- data[names(data)!='label']
 
 library(caTools)
-set.seed(101) 
+# set.seed(101) 
 split_ratio = 0.7
 sample = sample.split(data, SplitRatio = split_ratio)
 data_train = subset(data, sample == TRUE)
 data_test  = subset(data, sample == FALSE)
 
 # fit model
+start_time <- proc.time()
 fit <- cfa(model, data=data_train, std.lv=TRUE, missing="fiml", control=list(iter.max=1000))
+training_time <- proc.time() - start_time
 
 # display summary output
 # summary(fit, fit.measures=TRUE)
@@ -51,3 +53,5 @@ isCorrect <- pred_binary == data_test["label"]
 # Print statistics
 table(isCorrect)
 print(paste0("Accuracy = ", round(sum(isCorrect,na.rm = TRUE)/length(isCorrect)*100,2)))
+print("Training time (in seconds):")
+print(training_time)
