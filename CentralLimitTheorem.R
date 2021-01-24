@@ -7,7 +7,7 @@ max_value <-100
 set.seed(123)
 population <- runif(pop_size,min = min_value, max = max_value)
 
-#Actual mean and standard deviation of the population
+#Compute actual mean and standard deviation of the population
 mu <- mean(population)
 sig <- sd(population)
 
@@ -27,7 +27,7 @@ estimate_mu <- mean(mySample) # mean of sample means is a good estimate for popu
 spl_sig <- sd(mySample)
 estimate_sig <- spl_sig*sqrt(sample_size) # standard deviation of sample means is biased and needs to be corrected
 
-#Comparison of actual and estimated parameters
+#Compare the estimated parameters with the actual ones
 result <- data.frame("Pop_mean" = mu,
                      "Estimate_mean" = estimate_mu,
                      "Pop_sd" = sig,
