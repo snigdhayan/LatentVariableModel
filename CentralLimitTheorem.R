@@ -1,6 +1,6 @@
 # Verification of Central Limit Theorem
 
-#Create population data of chosen size; values chosen uniformly distributed between min and max
+#Create population data of chosen size; values are uniformly distributed between min and max
 pop_size <-100000
 min_value <- 0
 max_value <-100
@@ -11,7 +11,7 @@ population <- runif(pop_size,min = min_value, max = max_value)
 mu <- mean(population)
 sig <- sd(population)
 
-#Design sampling mechanism - no. of trials and sample size for each trial
+#Design sampling mechanism - no. of sampling trials and sample size for each trial
 trials = 100
 sample_size = 50
 
@@ -34,4 +34,4 @@ result <- data.frame("Pop_mean" = mu,
                      "Estimate_sd" = estimate_sig)
 
 print(result)
-plot(density(mySample)) #should look like a normal distribution
+plot(density(mySample)) #should look like a normal distribution irrespective of the original population
