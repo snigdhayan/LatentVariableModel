@@ -1,11 +1,15 @@
-# Verification of Central Limit Theorem
+#Verification of Central Limit Theorem
+#One simple way to state it is as follows: 
+#The Central Limit Theorem states that if there is a population with mean mu and standard deviation sigma and one draws 
+#sufficiently large random samples from the population with replacement, then the distribution of the sample means 
+#will be approximately normal.
 
 #Create random population data of reasonable size; values are uniformly distributed between min and max
 pop_size <-100000
 min_value <- 0
 max_value <-100
 set.seed(123)
-population <- runif(pop_size,min = min_value, max = max_value)
+population <- runif(pop_size, min = min_value, max = max_value)
 
 #Compute actual mean and standard deviation of the population
 mu <- mean(population)
@@ -18,7 +22,7 @@ sample_size = 50
 #Generate sample statistics - draw a random sample and compute its mean; repeat the procedure for the selected no. of trials
 mySample <- numeric(trials)
 for (i in c(1:trials)) {
-  spl <- sample(population,size = sample_size, replace = TRUE)
+  spl <- sample(population, size = sample_size, replace = TRUE)
   mySample[i] <- mean(spl)
 }
 
