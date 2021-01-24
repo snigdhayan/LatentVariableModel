@@ -15,7 +15,7 @@ sig <- sd(population)
 trials = 100
 sample_size = 50
 
-#Generate sample statistics - draw a random sample, compute its mean and repeat the procedure for selected no. of trials
+#Generate sample statistics - draw a random sample and compute its mean; repeat the procedure for the selected no. of trials
 mySample <- numeric(trials)
 for (i in c(1:trials)) {
   spl <- sample(population,size = sample_size, replace = TRUE)
