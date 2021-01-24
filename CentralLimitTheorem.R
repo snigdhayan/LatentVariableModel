@@ -2,7 +2,7 @@
 
 #The Central Limit Theorem states that if there is a population with mean mu and standard deviation sigma and one draws 
 #sufficiently large random samples from the population with replacement, then the distribution of the sample means 
-#will be approximately normal.
+#will be approximately normal. Moreover, mu and sigma can be estimated in a manner explained below.
 
 #Create random population data of reasonable size; values are uniformly distributed between min and max
 pop_size <-100000
