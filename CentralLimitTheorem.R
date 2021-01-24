@@ -1,5 +1,5 @@
 #Verification of Central Limit Theorem
-#One simple way to state it is as follows: 
+
 #The Central Limit Theorem states that if there is a population with mean mu and standard deviation sigma and one draws 
 #sufficiently large random samples from the population with replacement, then the distribution of the sample means 
 #will be approximately normal.
