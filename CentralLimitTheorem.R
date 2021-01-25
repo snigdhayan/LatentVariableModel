@@ -41,4 +41,4 @@ print(result)
 
 #Plot densities
 plot(density(population))
-plot(density(mySample)) #should look like a normal distribution irrespective of the original population
+plot(density(mySample)) #should look like a normal distribution irrespective of the original population density
