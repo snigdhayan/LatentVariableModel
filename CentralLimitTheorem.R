@@ -38,4 +38,7 @@ result <- data.frame("Population_mean" = mu,
                      "Estimated_sd" = sigma_estimate)
 
 print(result)
+
+#Plot densities
+plot(density(population))
 plot(density(mySample)) #should look like a normal distribution irrespective of the original population
