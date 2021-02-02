@@ -25,10 +25,10 @@ data <- read.csv(file = './normalized_breast_cancer_dataset.csv', header = TRUE)
 # data <- data[names(data)!='label']
 
 # set.seed(101) 
-split_ratio = 0.7
-sample = sample.split(data, SplitRatio = split_ratio)
-data_train = subset(data, sample == TRUE)
-data_test  = subset(data, sample == FALSE)
+split_ratio <- 0.7
+sample <- sample.split(data, SplitRatio = split_ratio)
+data_train <- subset(data, sample == TRUE)
+data_test  <- subset(data, sample == FALSE)
 
 # fit model
 start_time <- proc.time()
