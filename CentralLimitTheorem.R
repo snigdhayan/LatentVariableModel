@@ -4,7 +4,7 @@
 #sufficiently large random samples from the population with replacement, then the distribution of the sample means 
 #will be approximately normal. Moreover, mu and sigma can be estimated in a manner explained below.
 
-#Create random population data of reasonable size; values are uniformly distributed between min and max
+#Create random population data of reasonable size; values are uniformly distributed between min_value and max_value
 pop_size <-100000
 min_value <- -100
 max_value <- 100
@@ -15,7 +15,7 @@ population <- runif(pop_size, min = min_value, max = max_value)
 mu <- mean(population)
 sigma <- sd(population)
 
-#Desigman sampling mechanism - no. of sampling trials and sample size for each trial
+#Define sampling mechanism - no. of sampling trials and sample size for each trial
 trials = 100
 sample_size = 50
 
@@ -40,5 +40,5 @@ result <- data.frame("Population_mean" = mu,
 print(result)
 
 #Plot densities
-plot(density(population))
-plot(density(mySample)) #should look like a normal distribution irrespective of the original population density
+plot(density(population)) #should look like a uniform distribution between min_value and max_value defined above
+plot(density(mySample)) #should look like a normal distribution although the original population was not normally distributed
