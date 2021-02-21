@@ -20,11 +20,11 @@ model <- ' # regression
               
               
 # read data and prepare train-test data
-setwd('/Users/ibatu/Documents/MyProgramsWindows/Repositories/LatentVariableModel/')
+setwd('/Users/ibatu/Documents/MyProgramsWindows/Repositories/LatentVariableModel/BreastCancerAnalysis/')
 data <- read.csv(file = './normalized_breast_cancer_dataset.csv', header = TRUE)
 # data <- data[names(data)!='label']
 
-# set.seed(101) 
+set.seed(101) 
 split_ratio <- 0.7
 sample <- sample.split(data, SplitRatio = split_ratio)
 data_train <- subset(data, sample == TRUE)
@@ -42,7 +42,7 @@ training_time <- proc.time() - start_time
 pred <- as.data.frame(lavPredict(fit, type = "ov", newdata = data_test))
 
 # Check prediction accuracy
-myFn <- function(x) { # myFn is used to map predicted fractional labels to 0 or 1
+myFn <- function(x) { # myFn is used to map predicted fractional values to 0 or 1
   if (x > 0.5) 1
   else 0
 }

@@ -14,7 +14,7 @@ model <- ' # regression
               
               
 # read and cleanse data 
-setwd('/Users/ibatu/Documents/MyProgramsWindows/Repositories/LatentVariableModel/')
+setwd('/Users/ibatu/Documents/MyProgramsWindows/Repositories/LatentVariableModel/MeasureCreditWorthiness/')
 data <- read.csv(file = './CreditScoringData.csv', header = TRUE)
 data <- data[complete.cases(data),]
 # data <- data[names(data)!='creditability']
