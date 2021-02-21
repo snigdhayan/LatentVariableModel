@@ -16,7 +16,7 @@ model <- ' # regression
 # read and cleanse data 
 setwd('/Users/ibatu/Documents/MyProgramsWindows/Repositories/LatentVariableModel/MeasureCreditWorthiness/')
 data <- read.csv(file = './CreditScoringData.csv', header = TRUE)
-data <- data[complete.cases(data),]
+data <- data[complete.cases(data),] # there are approx. 1000 complete cases
 # data <- data[names(data)!='creditability']
 
 # change the 'credit_history' column to numeric type
