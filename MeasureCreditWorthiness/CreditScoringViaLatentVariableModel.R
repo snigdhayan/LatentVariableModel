@@ -1,8 +1,8 @@
-# load needed packages - caTools and lavaan (only needed once per session)
+# Load needed packages - caTools and lavaan (only needed once per session)
 library(caTools)
 library(lavaan)
 
-# specify model based on two latent variables to measure 'creditability' or 'credit-worthiness'
+# Specify model based on two latent variables to measure 'creditability' or 'credit-worthiness'
 model <- ' # regression
               creditability ~ latent_var1 + latent_var2
            # latent variables
@@ -13,27 +13,27 @@ model <- ' # regression
               age_in_years ~~ credit_history' 
               
               
-# read and cleanse data 
+# Read and cleanse data 
 setwd('/Users/ibatu/Documents/MyProgramsWindows/Repositories/LatentVariableModel/MeasureCreditWorthiness/')
 data <- read.csv(file = './CreditScoringData.csv', header = TRUE)
 data <- data[complete.cases(data),] # there are approx. 1000 complete cases
 # data <- data[names(data)!='creditability']
 
-# change the 'credit_history' column to numeric type
+# Change the 'credit_history' column to numeric type
 data$credit_history <- as.factor(data$credit_history)
 uniques = unique(data$credit_history)
 levels <- c(1:length(uniques))
 data$credit_history <- factor(data$credit_history, labels = levels)
 data$credit_history <- as.numeric(data$credit_history)
 
-# split train-test data
+# Split train-test data
 set.seed(101) 
-split_ratio <- 0.7
+split_ratio <- 0.6
 sample <- sample.split(data, SplitRatio = split_ratio)
 data_train <- subset(data, sample == TRUE)
 data_test  <- subset(data, sample == FALSE)
 
-# fit model
+# Fit model
 start_time <- proc.time()
 fit <- cfa(model, 
            data=data_train, 
@@ -42,7 +42,7 @@ fit <- cfa(model,
            control=list(iter.max=2000))
 training_time <- proc.time() - start_time
 
-# display summary output
+# Display summary output
 # summary(fit, fit.measures=TRUE)
 
 # Predict labels of test dataset
