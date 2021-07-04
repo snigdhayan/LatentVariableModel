@@ -20,7 +20,7 @@ model <- ' # regression
               
               
 # read data and prepare train-test data
-setwd('/Users/ibatu/Documents/MyProgramsWindows/Repositories/LatentVariableModel/BreastCancerAnalysis/')
+setwd('/Users/mathm/Documents/MyProgramsWindows/Repositories/LatentVariableModel/BreastCancerAnalysis/')
 data <- read.csv(file = './normalized_breast_cancer_dataset.csv', header = TRUE)
 # data <- data[names(data)!='label']
 
